@@ -27,4 +27,4 @@ for train_index,val_index in kf.split(X_train):
     xgb = XGBRegressor()
     x_fit = xgb.fit(X_train[train_index][:],Y_train[train_index][:])
     x = xgb.predict(X_train[val_index][:])
-    print('git push -u origin mainscore: '+str(xgb.score(X_train[val_index][:],Y_train[val_index][:])))
+    print('score: '+str(xgb.score(X_train[val_index][:],Y_train[val_index][:])))
