@@ -1,5 +1,4 @@
 import pandas as pd
-from sklearn.preprocessing import StandardScaler, LabelEncoder
 from xgboost import XGBRegressor
 from sklearn.model_selection import KFold
 from sklearn import metrics
@@ -57,6 +56,7 @@ feature_importances = []
 for i in range(len(x_fea_imp)):
     feature_importances.append([x_fea_imp[i], x_title[i]])
 feature_importances.sort(key=lambda x:x[0])
+print("特徵重要性排名(由小到大):")
 print(feature_importances)
 
 # 特徵刪除後(刪除zn、black)
@@ -69,7 +69,7 @@ score = xgb.score(X_test_del,Y_test)
 MAPE = metrics.mean_absolute_percentage_error(x_pre, Y_test)
 RMSE = metrics.mean_squared_error(x_pre, Y_test)**0.5
 R_square = metrics.r2_score(Y_test,x_pre)
-print('score: ' + str(score)) # 特徵刪除前score
-print('MAPE: ' + str(MAPE)) # 特徵刪除前MAPE
-print('RMSE: ' + str(RMSE)) # 特徵刪除前RMSE
-print('R_square: ' + str(R_square)) # 特徵刪除前R_square
+print('score: ' + str(score)) # 特徵刪除後score
+print('MAPE: ' + str(MAPE)) # 特徵刪除後MAPE
+print('RMSE: ' + str(RMSE)) # 特徵刪除後RMSE
+print('R_square: ' + str(R_square)) # 特徵刪除後R_square
