@@ -65,7 +65,6 @@ y_test = df_Y['hr_per_week']
 X_test = df_Y.drop(columns=['hr_per_week'])
 
 
-
 from sklearn.preprocessing import StandardScaler
 #標準化
 ss = StandardScaler()
