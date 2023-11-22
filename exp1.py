@@ -83,14 +83,14 @@ forest = RandomForestRegressor()
 ff = forest.fit(X_train_std, y_train)
 f = forest.predict(X_test_std)
 
-RMSE = metrics.mean_squared_error(f, y_test)**0.5
-MAE = metrics.mean_absolute_error(f, y_test)
 MAPE = metrics.mean_absolute_percentage_error(f, y_test)
+RMSE = metrics.mean_squared_error(f, y_test)**0.5
+R_square = metrics.r2_score(y_test,f)
 
 print('隨機森林: ')
-print('RMSE: '+str(RMSE))
-print('MAE: '+str(MAE))
 print('MAPE: '+str(MAPE))
+print('RMSE: '+str(RMSE))
+print('R_square: ' + str(R_square))
 end_time = time.time()
 print("執行時間：" + str(end_time - start_time) + "秒")
 
@@ -103,14 +103,14 @@ xgb = XGBRegressor()
 xx = xgb.fit(X_train, y_train)
 x = xgb.predict(X_test)
 
-RMSE = metrics.mean_squared_error(x, y_test)**0.5
-MAE = metrics.mean_absolute_error(x, y_test)
 MAPE = metrics.mean_absolute_percentage_error(x, y_test)
+RMSE = metrics.mean_squared_error(x, y_test)**0.5
+R_square = metrics.r2_score(y_test,x)
 
 print('XGBoost:')
-print('RMSE: '+str(RMSE))
-print('MAE: '+str(MAE))
 print('MAPE: '+str(MAPE))
+print('RMSE: '+str(RMSE))
+print('R_square: ' + str(R_square))
 end_time = time.time()
 print("執行時間：" + str(end_time - start_time) + "秒")
 
@@ -124,13 +124,14 @@ svr = SVR()
 svr.fit(X_train_std, y_train)
 s = svr.predict(X_test_std)
 
-RMSE = metrics.mean_squared_error(s, y_test)**0.5
-MAE = metrics.mean_absolute_error(s, y_test)
 MAPE = metrics.mean_absolute_percentage_error(s, y_test)
+RMSE = metrics.mean_squared_error(s, y_test)**0.5
+R_square = metrics.r2_score(y_test,s)
+
 print('SVR:')
-print('RMSE: '+str(RMSE))
-print('MAE: '+str(MAE))
 print('MAPE: '+str(MAPE))
+print('RMSE: '+str(RMSE))
+print('R_square: ' + str(R_square))
 end_time = time.time()
 print("執行時間：" + str(end_time - start_time) + "秒")
 
@@ -143,14 +144,14 @@ knn = KNeighborsRegressor()
 knn.fit(X_train_std, y_train)
 k = knn.predict(X_test_std)
 
-RMSE = metrics.mean_squared_error(k, y_test)**0.5
-MAE = metrics.mean_absolute_error(k, y_test)
 MAPE = metrics.mean_absolute_percentage_error(k, y_test)
+RMSE = metrics.mean_squared_error(k, y_test)**0.5
+R_square = metrics.r2_score(y_test,k)
 
 print('KNN: ')
-print('RMSE: '+str(RMSE))
-print('MAE: '+str(MAE))
 print('MAPE: '+str(MAPE))
+print('RMSE: '+str(RMSE))
+print('R_square: ' + str(R_square))
 end_time = time.time()
 print("執行時間：" + str(end_time - start_time) + "秒")
 
